@@ -25,16 +25,31 @@ API Course, Lesson 1 -->
        // Create it with the position of the singleLatLng,
        // on the map, and give it your own title!
 
+       var centralPark = {lat: 40.782865, lng: -73.965355 };
+       var marker = new google.maps.Marker({
+          position: singleLatLng,
+          map: map,
+          title: 'Central Mark'
+        }); 
+
        // TODO: create a single infowindow, with your own content.
        // It must appear on the marker
 
+       var infowindow = new google.maps.InfoWindow({
+         content: 'Central Park is a large public park in Manhattan in New York City.'
+       });
+
        // TODO: create an EVENT LISTENER so that the infowindow opens when
        // the marker is clicked!
+
+       marker.addListener('click', function() {
+         infowindow.open(map, marker);
+       });
      }
    </script>
    <!--TODO: Insert your API Key in the below call to load the API.-->
    <script async defer
-     src="https://maps.googleapis.com/maps/api/js?v=3&key=XXX&callback=initMap">
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDysKx1SOT8ciTRPk0l7Qu3mNQVKhdLNZI&callback=initMap">
    </script>
  </body>
 </html>
